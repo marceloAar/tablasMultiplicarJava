@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
+
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -16,34 +15,31 @@
 </head>
 
 <body>
+	
+<div class="container mt-3 col-xs-12 col-sm-12 col-md-8 col-lg-6">
 
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a href="/" class="navbar-brand fw-bold py-2 text-light">©mAR │ Aplicación para Consultar Tabla de Multiplicar</a>  
   </div>
-</nav>
+</nav> 
 	
-<div class="container m-5">
-	
-	<div class="card text-center">
+	<div class="card text-center mt-3">
 		<div class="card-body">
-			<h2 class="card-title" th:text="${'Tabla de Multiplicar: ' + numero}"></h2><hr>
-			
-			<h4 th:text="${numero + ' X ' + ' 1 = '+numero*1}"></h4>	
-			<h4 th:text="${numero + ' X ' + ' 2 = '+numero*2}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 3 = '+numero*3}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 4 = '+numero*4}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 5 = '+numero*5}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 6 = '+numero*6}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 7 = '+numero*7}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 8 = '+numero*8}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 9 = '+numero*9}"></h4>
-			<h4 th:text="${numero + ' X ' + ' 10 = '+numero*10}"></h4>				
+			<h2 class="card-title" th:text="${'Tabla de Multiplicar N° [ ' + numero+ ' ]'}"></h2><hr>
 
-		</div>
-	</div>
-	
-	<a href="/"><button type="submit" class="btn btn-primary mt-2">Volver</button></a>
+				<table class="table text-center">
+					
+					<tbody>
+						<tr th:each="multi, iterador : ${multi}">
+							<td th:text="${numero} + ' X '+ ${iterador.index+1} + ' = ' + ${numero}*${iterador.index+1} "></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	<a href="/"><button type="submit" class="btn btn-primary mt-2 text-center">Volver</button></a>
+	</div>	
 
 </div>
 
